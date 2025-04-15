@@ -1,0 +1,61 @@
+const StateModel = require("../models/StateModel");
+
+// add state
+
+const addState = async(req,res)=>{
+    try{
+        const savedState=await StateModel.create(req.body);
+        res.status(201).json({
+            message:"state saved successfully",
+            data:savedState
+        })
+    }catch(err){
+        res.status(500).json({
+            message:err
+        })
+    }
+};
+
+
+//get state
+const getState= async(req,res)=>{
+    try{
+        const states= await StateModel.find();
+        res.status(200).json({
+            message:" all states ",
+            data:states
+        })
+
+    }catch(err){
+        res.status(500).json({
+            message:err
+        })
+
+    }
+}
+
+const deleteState = async(req,res)=>{
+
+    //delete from roles where id =?
+    //req.params
+//    console.log(req.params.id) //prams object...
+
+    const deletedState = await StateModel.findByIdAndDelete(req.params.id)
+
+    res.json({
+      message:"user deleted successfully..",
+      data:deletedState
+    })
+
+
+
+}
+
+
+
+
+module.exports={
+    addState,
+    getState,
+    deleteState
+}
