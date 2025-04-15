@@ -1,0 +1,358 @@
+/* Navbar
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #564f4f;
+  color: rgb(74, 28, 28);
+  padding: 15px 30px;
+  font-style:normal ;
+  font-size: 
+
+} */
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(159, 8, 8, 0.2); /* Glass effect */
+    backdrop-filter: blur(10px); /* Blur effect */
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .nav-links {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: rgb(29, 11, 11);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #ffcc00;
+  }
+  
+  /* Animated Underline */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background-color: #ffcc00;
+    transition: 0.3s ease-out;
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* CTA Button */
+  .cta-btn {
+    background: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .cta-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .nav-links {
+    
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-item .nav-link {
+    text-decoration: none;
+    color: rgb(243, 215, 215);
+  }
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: url("https://source.unsplash.com/1600x600/?house,realestate") no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  /* Search Bar */
+  .search-container {
+    background: #5a5a5a;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .category-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .category-btn {
+    background: #d3d3d3;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .category-btn.active {
+    background: white;
+    border-bottom: 4px solid black;
+  }
+  
+  .search-box {
+    display: flex;
+    gap: 8px;
+    background: white;
+    padding: 8px;
+    border-radius: 5px;
+    align-items: center;
+  }
+  
+  .property-type {
+    padding: 8px;
+    border: none;
+    background: #fff;
+  }
+  
+  .search-input {
+    padding: 8px;
+    flex-grow: 1;
+    border: none;
+  }
+  
+  .location-btn, .search-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .location-btn {
+    background: #f5f5f5;
+    color: black;
+  }
+  
+  /* Featured Listings */
+  .featured {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .property-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .property-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .property-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+  }
+  
+  .property-card h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #3b82f6;
+  }
+  .property-info-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .info-card {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .info-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 10px 0;
+  }
+  
+  .info-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  
+  .blue { background: #1d4ed8; } /* Dark Blue */
+  .yellow { background: #facc15; color: black; } /* Yellow */
+  .blue-light { background: #60a5fa; } /* Light Blue */
+  .red { background: #b91c1c; } /* Dark Red */
+  
+  /* Hero Section with Background Image */
+  .hero {
+    position: relative;
+    height: 90vh;
+    background: url("../assets/real-estate-bg.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better readability */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero p {
+    font-size: 18px;
+    max-width: 600px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Search Box Styling */
+  .search-container {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .search-box {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .dropdown {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+  }
+  
+  .search-btn {
+    background: #ffcc00;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .search-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  

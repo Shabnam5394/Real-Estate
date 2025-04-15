@@ -1,0 +1,158 @@
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import StatsCard from '../../components/StatsCard';
+import RecentPropertiesTable from '../../components/RecentPropertiesTable';
+import PropertyChart from '../../components/PropertyChart';
+import { FaHome, FaUsers, FaCalendarDay, FaTags } from 'react-icons/fa';
+
+export default function AdminDashboard() {
+  const [totalUsers, setTotalUsers] = useState(0);
+  const [totalProperties, setTotalProperties] = useState(0);
+  const [listingsToday, setListingsToday] = useState(0);
+  const [totalCategories, setTotalCategories] = useState(0);
+  const [allProperties, setAllProperties] = useState([]);
+  const [chartData, setChartData] = useState([]);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const usersRes = await fetch('http://localhost:5000/api/users');
+        const usersData = await usersRes.json();
+        setTotalUsers(usersData.data.length);
+
+        const propertiesRes = await fetch('http://localhost:5000/properties/get');
+        const propertiesData = await propertiesRes.json();
+
+        // Update state with all fetched properties
+        setAllProperties(propertiesData);
+
+        // Total count
+        setTotalProperties(propertiesData.length);
+
+        // Today’s listings
+        const today = new Date().toISOString().split('T')[0];
+        const todayListings = propertiesData.filter(
+          (property) =>
+            new Date(property.createdAt).toISOString().split('T')[0] === today
+        );
+        setListingsToday(todayListings.length);
+
+        // Unique categories
+        const categorySet = new Set(propertiesData.map((property) => property.type));
+        setTotalCategories(categorySet.size);
+
+        // Chart data - last 7 days
+        const last7Days = [...Array(7)].map((_, i) => {
+          const date = new Date();
+          date.setDate(date.getDate() - i);
+          const dateStr = date.toISOString().split('T')[0];
+          const count = propertiesData.filter(
+            (p) => new Date(p.createdAt).toISOString().split('T')[0] === dateStr
+          ).length;
+          return { date: dateStr, count };
+        }).reverse();
+
+        setChartData(last7Days);
+      } catch (err) {
+        console.error('Failed to fetch stats:', err);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
+  const location = useLocation();
+
+  const menuItems = [
+    { label: 'Dashboard', path: '/admindashboard' },
+    { label: 'Add Item', path: '/admindashboard/add' },
+    { label: 'Update Item', path: '/admindashboard/update' },
+    { label: 'Delete Item', path: '/admindashboard/delete' },
+    { label: 'Charts', path: '/admindashboard/charts' },
+  ];
+
+  // Sort and slice for recent 5 properties
+  const recentProperties = allProperties
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 5);
+
+  return (
+    <div className="flex h-screen bg-gradient-to-br from-slate-100 to-white">
+      {/* Sidebar */}
+      <div className="w-64 bg-slate-900 text-white flex flex-col py-8 px-6 shadow-lg">
+        <h2 className="text-2xl font-bold mb-10 text-center">Admin Panel</h2>
+        <nav className="flex flex-col gap-4">
+          {menuItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300
+                ${location.pathname === item.path
+                  ? 'bg-slate-700 text-white font-semibold'
+                  : 'hover:bg-slate-800 hover:text-gray-200'}`}
+            >
+              <div className="w-2 h-2 rounded-full bg-white" />
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-10 overflow-auto">
+        <h1 className="text-3xl font-semibold mb-6">Dashboard Overview</h1>
+
+        {/* Dashboard Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <StatsCard title="Total Properties" value={totalProperties} icon={<FaHome />} bg="bg-blue-600" />
+          <StatsCard title="Total Users" value={totalUsers} icon={<FaUsers />} bg="bg-green-600" />
+          <StatsCard title="Listings Today" value={listingsToday} icon={<FaCalendarDay />} bg="bg-purple-600" />
+          <StatsCard title="Property Categories" value={totalCategories} icon={<FaTags />} bg="bg-rose-600" />
+        </div>
+
+        {/* Chart */}
+        <div className="mb-10">
+          <PropertyChart data={chartData} />
+        </div>
+
+        {/* Recent Properties Table */}
+        <RecentPropertiesTable properties={recentProperties} />
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------npm install jspdf papaparse----------------
+jspdf for PDF
+
+papaparse or native logic for CSV export
+
+
+
+
+--------------------in report------------------
+
+Add filtering by city/region.
+
+Email this report directly to the admin.
+
+Add download icons or export buttons as floating action buttons.
