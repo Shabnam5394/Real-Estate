@@ -10,7 +10,6 @@ integrated Redux for state management.
 !<img width="1751" height="912" alt="image" src="https://github.com/user-attachments/assets/bbb8da94-6e0e-441e-bf9c-0b412fb3ff40" />
 !<img width="1862" height="908" alt="image" src="https://github.com/user-attachments/assets/4451bd5e-614e-48ca-a389-9fbbfe16ac29" />
 !<img width="1885" height="902" alt="image" src="https://github.com/user-attachments/assets/b24698c4-542d-443b-9d90-6795a61491d3" />
-!<img width="1877" height="906" alt="image" src="https://github.com/user-attachments/assets/d2e5f03d-f59c-4c4c-8135-c88cd6ee39a6" />
 !<img width="1637" height="907" alt="image" src="https://github.com/user-attachments/assets/0d07807e-c5b3-4518-9130-945577209abc" />
 !<img width="1758" height="910" alt="image" src="https://github.com/user-attachments/assets/abec4ced-83f6-4eaf-a01b-479621e91e0c" />
 !<img width="1842" height="907" alt="image" src="https://github.com/user-attachments/assets/497415d4-160d-460e-a3cb-539402f24ea6" />
