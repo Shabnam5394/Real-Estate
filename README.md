@@ -14,6 +14,14 @@ integrated Redux for state management.
 <img width="1758" height="910" alt="image" src="https://github.com/user-attachments/assets/abec4ced-83f6-4eaf-a01b-479621e91e0c" />
 <img width="1842" height="907" alt="image" src="https://github.com/user-attachments/assets/497415d4-160d-460e-a3cb-539402f24ea6" />
 <img width="1207" height="903" alt="image" src="https://github.com/user-attachments/assets/cca527bf-993e-45f5-8762-72dee265c47e" />
+<img width="1822" height="892" alt="image" src="https://github.com/user-attachments/assets/0bf405d9-5720-423f-9e80-326def5c71e9" />
+<img width="1828" height="860" alt="image" src="https://github.com/user-attachments/assets/0f42bc37-9022-4500-88d5-25e6afe401f7" />
+<img width="1817" height="896" alt="image" src="https://github.com/user-attachments/assets/bf2c54a6-aec0-430d-bb8e-f9307cc0ece9" />
+<img width="1827" height="875" alt="image" src="https://github.com/user-attachments/assets/14944986-def4-4360-9fe9-0146d999522a" />
+
+
+
+
 
 
 
